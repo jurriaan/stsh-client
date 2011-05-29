@@ -1,6 +1,6 @@
 # Stsh
 
-[<img src="https://github.com/jakedahn/stsh-client/blob/393e8b60c24caa539f1d576c3ba2b57a1f76ff80/resources/stacheicon.png?raw=true />]
+[<img src="https://github.com/jakedahn/stsh-client/blob/393e8b60c24caa539f1d576c3ba2b57a1f76ff80/resources/stacheicon.png?raw=true" />]
 
 Take a screenshot in OS X and have a URL to the picture in your pasteboard a second later.
 
