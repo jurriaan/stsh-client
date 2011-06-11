@@ -181,7 +181,7 @@
 								</object>
 								<object class="NSMenuItem" id="632727374">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Quit Scrup</string>
+									<string key="NSTitle">Quit Stsh</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -991,7 +991,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{452, 634}, {542, 210}}</string>
 				<int key="NSWTFlags">1677721600</int>
-				<string key="NSWindowTitle">Scrup</string>
+				<string key="NSWindowTitle">Stsh</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSToolbar" key="NSViewClass" id="1019136870">
 					<object class="NSMutableString" key="NSToolbarIdentifier">
@@ -1163,7 +1163,7 @@
 					<object class="NSMenuItem" id="272533935">
 						<reference key="NSMenu" ref="742165362"/>
 						<bool key="NSIsDisabled">YES</bool>
-						<string key="NSTitle">Recent scrups:</string>
+						<string key="NSTitle">Recent stshs:</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="756751024"/>
@@ -6828,7 +6828,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../scrup.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../stsh.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<bool key="EncodedWithXMLCoder">YES</bool>
