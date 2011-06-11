@@ -474,12 +474,13 @@ extern int pngcrush_main(int argc, char *argv[]);
 
 	fn = [path lastPathComponent];
 
-	// receiver URL
+	// receiver URL - set to default if not set
 	NSString *surl = [defaults objectForKey:@"recvURL"];
 	if (!surl || ![surl length]) {
-		ALERT_MODAL(@"Stsh: Missing Receiver URL", @"No Receiver URL has been specified");
-		return;
+		[defaults setObject:@"http://stsh.me/images" forKey:@"recvURL"];
 	}
+	surl = [defaults objectForKey:@"recvURL"];
+	
 	NSString *fne = [fn stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	surl = [surl stringByReplacingOccurrencesOfString:@"{filename}" withString:fne];
 
