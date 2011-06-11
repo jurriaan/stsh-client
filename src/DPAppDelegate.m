@@ -58,7 +58,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	filePrefixMatch = [defaults objectForKey:@"filePrefixMatch"];
 	postProcessShellCommand = [defaults objectForKey:@"postProcessShellCommand"];
 	if (!postProcessShellCommand)
-		postProcessShellCommand = @"say scrupped at $(date +%X) &";
+		postProcessShellCommand = @"say stashed at $(date +%X) &";
 	preprocessingWindow = nil;
 	preprocessingWindowController = nil;
 	preprocessingUIBlockQueue = [NSMutableArray array];
@@ -477,7 +477,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	// receiver URL
 	NSString *surl = [defaults objectForKey:@"recvURL"];
 	if (!surl || ![surl length]) {
-		ALERT_MODAL(@"Scrup: Missing Receiver URL", @"No Receiver URL has been specified");
+		ALERT_MODAL(@"Stsh: Missing Receiver URL", @"No Receiver URL has been specified");
 		return;
 	}
 	NSString *fne = [fn stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -486,7 +486,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	// validate URL
 	NSURL *url = [NSURL URLWithString:surl];
 	if (![[url scheme] isEqualToString:@"http"] && ![[url scheme] isEqualToString:@"https"]) {
-		ALERT_MODAL(@"Scrup: Invalid Receiver URL",
+		ALERT_MODAL(@"Stsh: Invalid Receiver URL",
 								@"The Receiver URL must be a HTTP or HTTPS URL (begin with \"http://\" or \"https://\")");
 		return;
 	}

@@ -269,7 +269,7 @@
 		3AF2B0C610FE90610052B40E /* MAAttachedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAAttachedWindow.h; path = src/MAAttachedWindow.h; sourceTree = "<group>"; };
 		3AF2B0C710FE90610052B40E /* MAAttachedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAAttachedWindow.m; path = src/MAAttachedWindow.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Scrup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Stsh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stsh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,7 +323,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Scrup.app */,
+				8D1107320486CEB800E47090 /* Stsh.app */,
 				3AE55FAB10BC9581006A7F94 /* libpngcrush.a */,
 			);
 			name = Products;
@@ -558,7 +558,7 @@
 			name = Stsh;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Dropub;
-			productReference = 8D1107320486CEB800E47090 /* Scrup.app */;
+			productReference = 8D1107320486CEB800E47090 /* Stsh.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -566,7 +566,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "scrup" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "stsh" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -864,7 +864,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Scrup;
+				PRODUCT_NAME = Stsh;
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -892,7 +892,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Scrup;
+				PRODUCT_NAME = Stsh;
 				SDKROOT = macosx10.6;
 			};
 			name = Release;
@@ -953,7 +953,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "scrup" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "stsh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

@@ -7,7 +7,7 @@ BOOL g_debug = NO;
 NSString *DPToolbarGeneralSettingsItemIdentifier = @"DPToolbarGeneralSettingsItem";
 NSString *DPToolbarProcessingSettingsItemIdentifier = @"DPToolbarProcessingSettingsItem";
 NSString *DPToolbarAdvancedSettingsItemIdentifier = @"DPToolbarAdvancedSettingsItem";
-NSString *SCErrorDomain = @"ScrupError";
+NSString *SCErrorDomain = @"StshError";
 
 int main(int argc, const char *argv[]) {
 	// create a global operation queue
