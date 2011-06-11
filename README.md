@@ -23,6 +23,7 @@ You only need to do this once. Now, build Scrup in Xcode.
 
 - Rasmus Andersson <http://hunch.se/>
 - Jake Dahn <http://stsh.me>
+- Jesse Andrews <http://overstimulate.com>
 - You - send me a pull request
 
 
