@@ -834,7 +834,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 - (BOOL)enablePreprocessingUI {
 	NSNumber *n = [defaults objectForKey:@"enablePreprocessingUI"];
 	if (!n)
-		return YES; // default value
+		return NO; // default value
 	return [n boolValue];
 }
 
