@@ -59,6 +59,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	postProcessShellCommand = [defaults objectForKey:@"postProcessShellCommand"];
 	if (!postProcessShellCommand)
 		postProcessShellCommand = @"say stashed at $(date +%X) &";
+    
 	preprocessingWindow = nil;
 	preprocessingWindowController = nil;
 	preprocessingUIBlockQueue = [NSMutableArray array];
@@ -75,6 +76,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	SETDEFBOOL(convertImagesTosRGB, YES);
 	SETDEFBOOL(trashAfterSuccessfulUpload, NO);
 	SETDEFBOOL(enablePostProcessShellCommand, NO);
+    SETDEFBOOL(showGrowlNotifications, NO);
 	#undef SETDEFBOOL
 
 	// read showInDock
@@ -152,6 +154,15 @@ extern int pngcrush_main(int argc, char *argv[]);
 	#if DEBUG
 	[self performSelectorInBackground:@selector(debugPerpetualStateCheck) withObject:nil];
 	#endif
+
+    NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
+	NSString *growlPath = [[myBundle privateFrameworksPath] stringByAppendingPathComponent:@"Growl.framework"];
+	NSBundle *growlBundle = [NSBundle bundleWithPath:growlPath];
+    if (growlBundle && [growlBundle load]) {
+		// Register ourselves as a Growl delegate
+		[GrowlApplicationBridge setGrowlDelegate:self];
+    }
+
 
 	// XXX
 	/*[self displayPreprocessingUIForScreenshotAtPath:@""
@@ -620,7 +631,9 @@ extern int pngcrush_main(int argc, char *argv[]);
 				[log warn:@"could not move \"\" to trash", op.path];
 			}
 		}
-
+        if(showGrowlNotifications) {
+             [GrowlApplicationBridge notifyWithTitle:@"Screenshot Uploaded" description:rspstr notificationName:@"Stsh" iconData:nil priority:0 isSticky:NO clickContext:nil] ;
+        }
 		// Update list of recent
 		[self updateListOfRecentUploads];
 	}
@@ -632,6 +645,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 -(void)httpPostOperationDidFail:(HTTPPOSTOperation *)op withError:(NSError *)error {
 	// schedule in main thread since we want to avoid locks and stuff
 	[op.log error:@"failed with error %@", error];
+   
 	[self performSelectorOnMainThread:@selector(_httpPostOperationDidFail:) withObject:[NSArray arrayWithObjects:op, error, nil] waitUntilDone:NO];
 }
 
@@ -639,7 +653,7 @@ extern int pngcrush_main(int argc, char *argv[]);
 	nCurrOps--;
 	HTTPPOSTOperation *op = [args objectAtIndex:0];
 	//NSError *error = [args objectAtIndex:1];
-
+    if(showGrowlNotifications) [GrowlApplicationBridge notifyWithTitle:@"Stsh" description:@"Screenshot upload failed" notificationName:@"Stsh" iconData:nil priority:2 isSticky:NO clickContext:nil] ;
 	// Remove record of screenshot
 	[uploadedScreenshots removeObjectForKey:[op.path lastPathComponent]];
 
@@ -791,6 +805,18 @@ extern int pngcrush_main(int argc, char *argv[]);
 	[defaults setBool:trashAfterSuccessfulUpload forKey:@"trashAfterSuccessfulUpload"];
 }
 
+- (BOOL)showGrowlNotifications {
+	return showGrowlNotifications;
+}
+
+- (void)setShowGrowlNotifications:(BOOL)y {
+#if DEBUG
+	NSLog(@"showGrowlNotifications = %d", y);
+#endif
+	showGrowlNotifications = y;
+    if(y) [GrowlApplicationBridge notifyWithTitle:@"Stsh" description:@"Growl notifications enabled" notificationName:@"Stsh" iconData:nil priority:0 isSticky:NO clickContext:nil] ;
+	[defaults setBool:showGrowlNotifications forKey:@"showGrowlNotifications"];
+}
 
 - (BOOL)enablePngcrush {
 	return enablePngcrush;

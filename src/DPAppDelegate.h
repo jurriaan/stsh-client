@@ -2,8 +2,9 @@
 #import "HTTPPOSTOperation.h"
 #import "DPAttachedWindow.h"
 #import "DPPreprocessingWindowController.h"
+#import "Growl/GrowlApplicationBridge.h"
 
-@interface DPAppDelegate : NSObject {
+@interface DPAppDelegate : NSObject<GrowlApplicationBridgeDelegate> {
 	NSUserDefaults *defaults;
 	NSStatusItem *statusItem;
 	IBOutlet NSWindow *mainWindow;
@@ -25,7 +26,7 @@
 		convertImagesTosRGB,
 		enablePngcrush,
 		trashAfterSuccessfulUpload,
-		enablePostProcessShellCommand;
+		enablePostProcessShellCommand, showGrowlNotifications;
 	NSString *filePrefixMatch;
 	NSString *postProcessShellCommand;
 	ASLLogger *log;
@@ -61,7 +62,7 @@
 // UI bindings
 @property(assign) BOOL openAtLogin, showInDock, showInMenuBar, 
 	showQueueCountInMenuBar, paused, convertImagesTosRGB, enablePngcrush,
-	trashAfterSuccessfulUpload, enablePreprocessingUI;
+	trashAfterSuccessfulUpload, enablePreprocessingUI, showGrowlNotifications;
 
 @property(readonly) BOOL preprocessingWindowIsActive;
 @property(readonly) NSString *cacheDir;
